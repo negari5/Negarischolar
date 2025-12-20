@@ -179,11 +179,11 @@ const InfoSection: React.FC<InfoSectionProps> = ({ userType }) => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="flex items-center gap-2">
               <Mail className="h-4 w-4 text-secondary" />
-              <span className="text-sm">support@negari.com</span>
+              <span className="text-sm">negarischolars@gmail.com</span>
             </div>
             <div className="flex items-center gap-2">
               <Phone className="h-4 w-4 text-secondary" />
-              <span className="text-sm">+251-911-000000</span>
+              <span className="text-sm">+251941130946</span>
             </div>
             <div className="flex items-center gap-2">
               <Clock className="h-4 w-4 text-secondary" />

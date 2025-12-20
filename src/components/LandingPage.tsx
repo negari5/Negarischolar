@@ -100,48 +100,92 @@ const LandingPage = () => {
       <div className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled ? 'bg-white/95 dark:bg-background/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
       }`}>
-        <div className="container mx-auto px-4 py-3 sm:px-6 sm:py-4 flex flex-wrap items-center justify-between gap-2 sm:gap-4">
-          <div className="flex items-center gap-2 sm:gap-3 min-w-0">
+        <div className="container mx-auto px-4 py-3 sm:px-6 sm:py-4">
+          {/* Mobile Layout - Single row */}
+          <div className="flex items-center justify-between gap-2 sm:hidden">
+            {/* Logo only on mobile */}
             <img 
               src={isScrolled 
                 ? "/lovable-uploads/negari logo color.png" 
                 : "/lovable-uploads/negari logo white.png"}
               alt="Negari Logo" 
-              className="h-8 w-8 sm:h-12 sm:w-12 flex-shrink-0"
+              className="h-10 w-10 flex-shrink-0"
             />
-            <span className={`font-comfortaa font-bold text-lg sm:text-2xl truncate ${
-              isScrolled ? 'text-gray-900 dark:text-foreground' : 'text-white'
-            }`}>
-              Negari
-            </span>
+            {/* Buttons on right */}
+            <div className="flex items-center gap-1.5">
+              <LanguageSwitcher />
+              <Button
+                type="button"
+                variant="ghost"
+                size="sm"
+                onClick={() => setTheme(isDarkMode ? 'light' : 'dark')}
+                className={`rounded-full px-2 ${
+                  isScrolled
+                    ? 'text-gray-700 hover:text-gray-900 hover:bg-gray-100'
+                    : 'text-white/80 hover:text-white hover:bg-white/10'
+                }`}
+                aria-label="Toggle dark mode"
+              >
+                {isDarkMode ? (
+                  <Sun className="h-4 w-4" />
+                ) : (
+                  <Moon className="h-4 w-4" />
+                )}
+              </Button>
+              <Button 
+                size="sm"
+                onClick={() => setShowAuthModal(true)}
+                className="bg-negari-navy hover:bg-negari-navy-dark text-white px-3 py-1.5 rounded-full text-xs whitespace-nowrap"
+              >
+                {t('start_journey')}
+              </Button>
+            </div>
           </div>
-          <div className="flex items-center gap-2 sm:gap-3 ml-auto">
-            <LanguageSwitcher />
-            <Button
-              type="button"
-              variant="ghost"
-              size="sm"
-              onClick={() => setTheme(isDarkMode ? 'light' : 'dark')}
-              className={`rounded-full px-2 ${
-                isScrolled
-                  ? 'text-gray-700 hover:text-gray-900 hover:bg-gray-100'
-                  : 'text-white/80 hover:text-white hover:bg-white/10'
-              }`}
-              aria-label="Toggle dark mode"
-            >
-              {isDarkMode ? (
-                <Sun className="h-4 w-4" />
-              ) : (
-                <Moon className="h-4 w-4" />
-              )}
-            </Button>
-            <Button 
-              size="sm"
-              onClick={() => setShowAuthModal(true)}
-              className="bg-negari-navy hover:bg-negari-navy-dark text-white px-3 py-1.5 sm:px-6 sm:py-2 rounded-full text-xs sm:text-sm whitespace-nowrap"
-            >
-              {t('start_journey')}
-            </Button>
+
+          {/* Desktop Layout */}
+          <div className="hidden sm:flex items-center justify-between gap-4">
+            <div className="flex items-center gap-3 min-w-0">
+              <img 
+                src={isScrolled 
+                  ? "/lovable-uploads/negari logo color.png" 
+                  : "/lovable-uploads/negari logo white.png"}
+                alt="Negari Logo" 
+                className="h-12 w-12 flex-shrink-0"
+              />
+              <span className={`font-comfortaa font-bold text-2xl truncate ${
+                isScrolled ? 'text-gray-900 dark:text-foreground' : 'text-white'
+              }`}>
+                Negari
+              </span>
+            </div>
+            <div className="flex items-center gap-3 ml-auto">
+              <LanguageSwitcher />
+              <Button
+                type="button"
+                variant="ghost"
+                size="sm"
+                onClick={() => setTheme(isDarkMode ? 'light' : 'dark')}
+                className={`rounded-full px-2 ${
+                  isScrolled
+                    ? 'text-gray-700 hover:text-gray-900 hover:bg-gray-100'
+                    : 'text-white/80 hover:text-white hover:bg-white/10'
+                }`}
+                aria-label="Toggle dark mode"
+              >
+                {isDarkMode ? (
+                  <Sun className="h-4 w-4" />
+                ) : (
+                  <Moon className="h-4 w-4" />
+                )}
+              </Button>
+              <Button 
+                size="sm"
+                onClick={() => setShowAuthModal(true)}
+                className="bg-negari-navy hover:bg-negari-navy-dark text-white px-6 py-2 rounded-full text-sm whitespace-nowrap"
+              >
+                {t('start_journey')}
+              </Button>
+            </div>
           </div>
         </div>
       </div>
@@ -212,8 +256,8 @@ const LandingPage = () => {
             </Button>
           </div>
 
-          {/* Scroll Indicator */}
-          <div className="absolute bottom-8 left-0 right-0 flex justify-center animate-bounce-gentle">
+          {/* Scroll Indicator - Hidden on mobile and small tablets */}
+          <div className="hidden md:flex absolute bottom-8 left-0 right-0 justify-center animate-bounce-gentle">
             <div className="flex flex-col items-center text-white/60">
               <span className="text-sm mb-2">{t('scroll_to_explore')}</span>
               <ChevronDown className="w-6 h-6" />
@@ -827,8 +871,8 @@ const LandingPage = () => {
               <div>
                 <h3 className="font-semibold text-white mb-3">{t('footer_contact')}</h3>
                 <div className="space-y-2 text-sm text-white/70">
-                  <div>support@negari.com</div>
-                  <div>+251-911-000000</div>
+                  <div>negarischolars@gmail.com</div>
+                  <div>+251941130946</div>
                 </div>
               </div>
             </div>

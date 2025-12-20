@@ -102,20 +102,18 @@ const SubscriptionPlans: React.FC<SubscriptionPlansProps> = ({ onSelectPlan }) =
                 <CardTitle className={`text-xl text-negari-indigo ${plan.recommended ? 'font-bold' : ''}`}>
                   {planDisplayName}
                 </CardTitle>
-                <CardDescription>
-                  <div className="mt-4">
-                    <span className="text-4xl font-bold text-negari-indigo">
-                      {plan.currency === 'USD' ? '$' : plan.currency}
-                      {plan.price}
-                    </span>
-                    <span className="text-muted-foreground">{planDuration}</span>
+                <div className="mt-4">
+                  <div className="text-4xl font-bold text-negari-indigo">
+                    {plan.currency === 'USD' ? '$' : plan.currency}
+                    {plan.price}
                   </div>
+                  <div className="text-sm text-muted-foreground">{planDuration}</div>
                   {plan.trialDays > 0 && (
-                    <p className="text-sm text-negari-orange mt-2">
+                    <div className="text-sm text-negari-orange mt-2">
                       {plan.trialDays}{t('sub_day_free_trial_suffix')}
-                    </p>
+                    </div>
                   )}
-                </CardDescription>
+                </div>
               </CardHeader>
 
               <CardContent className="flex flex-col flex-1 space-y-4">

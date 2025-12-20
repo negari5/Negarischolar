@@ -175,7 +175,7 @@ const AdminDashboard: React.FC = () => {
     primaryColor: '#FF6B35',
     secondaryColor: '#2D3748',
     logo: '',
-    contactEmail: 'support@negari.com',
+    contactEmail: 'negarischolars@gmail.com',
     contactPhone: '+1234567890'
   });
 
@@ -206,8 +206,8 @@ const AdminDashboard: React.FC = () => {
       telegram: ''
     },
     contactInfo: {
-      email: 'support@negari.com',
-      phone: '+251-911-000000',
+      email: 'negarischolars@gmail.com',
+      phone: '+251941130946',
       address: 'Addis Ababa, Ethiopia'
     },
     documents: {
